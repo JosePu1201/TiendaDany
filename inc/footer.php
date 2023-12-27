@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <h4 class="text-footer">Contactanos</h4>
-                <a href="#" target="_blank">
+                <a href="https://www.google.com/search?q=coraje&client=ubuntu-sn&hs=4rQ&sca_esv=9f8b66046fcdca6c&channel=fs&tbm=isch&source=lnms&sa=X&ved=2ahUKEwixhfzE8a6DAxWeZjABHfBgCRwQ_AUoAXoECAIQAw&biw=1440&bih=815" target="_blank">
                     <i class="fa fa-facebook" aria-hidden="true">&nbsp; Facebook </i> 
                 </a><br>
                 <a href="#" target="_blank">
@@ -41,5 +41,5 @@
         </div>
     </div>
     <br><br><br>
-    <h5 class="text-center tittles-pages-logo text-footer">STORE &copy; 2021</h5>
+    <h5 class="text-center tittles-pages-logo text-footer">NICE ACCESORIOS &copy; 2023</h5>
 </footer>

@@ -11,7 +11,7 @@
     <section id="container-pedido">
         <div class="container">
             <div class="page-header">
-                <h1>CARRITO DE COMPRAS <small class="tittles-pages-logo">STORE</small></h1>
+                <h1>CARRITO DE COMPRAS <small class="tittles-pages-logo">NICE ACCESORIOS</small></h1>
             </div>
             <br><br><br>
             <div class="row">

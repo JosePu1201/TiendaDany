@@ -9,7 +9,7 @@
     <section id="form-registration">
         <div class="container">
             <div class="page-header">
-              <h1>REGISTRO <small class="tittles-pages-logo">STORE</small></h1>
+              <h1>REGISTRO <small class="tittles-pages-logo">NICE ACCESORIOS</small></h1>
             </div>
             <p class="lead text-center">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident assumenda asperiores architecto nostrum blanditiis excepturi voluptatibus, velit ad enim. Aperiam voluptatum est, fugit quisquam libero distinctio nobis porro numquam minus.
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-sm-5 text-center">
                     <figure>
-                      <img src="./assets/img/img-registration.png" alt="store" class="img-responsive">
+                      <img src="./assets/img/registro.jpg" alt="store" class="img-responsive">
                     </figure>
                 </div>
                 <div class="col-sm-7">
