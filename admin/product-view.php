@@ -1,5 +1,5 @@
 <p class="lead">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, culpa quasi tempore assumenda, perferendis sunt. Quo consequatur saepe commodi maxime, sit atque veniam blanditiis molestias obcaecati rerum, consectetur odit accusamus.
+    En esta seccion puedes agregar un nuevo producto, toma en cuenta que los precios de compra(cuanto te costo) y el precio de venta al publico es por unidad de producto
 </p>
 <ul class="breadcrumb" style="margin-bottom: 5px;">
     <li>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
-                                <label class="control-label">Precio</label>
+                                <label class="control-label">Precio al publico</label>
                                 <input type="text" class="form-control" required maxlength="20" pattern="[0-9.]{1,20}" name="prod-price">
                               </div>
                             </div>
@@ -62,6 +62,12 @@
                               <div class="form-group label-floating">
                                 <label class="control-label">Unidades disponibles</label>
                                 <input type="text" class="form-control" required maxlength="20" pattern="[0-9]{1,20}" name="prod-stock">
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                              <div class="form-group label-floating">
+                                <label class="control-label">Precio de compra</label>
+                                <input type="text" class="form-control" required maxlength="20" pattern="[0-9]{1,20}" name="prod-inversion">
                               </div>
                             </div>
                             <div class="col-xs-12">
