@@ -14,19 +14,19 @@
     $estadoProd=consultasSQL::clean_string($_POST['prod-estado']);
     $adminProd=consultasSQL::clean_string($_POST['admin-name']);
     $descProd=consultasSQL::clean_string($_POST['prod-desc-price']);
-    $inversion=consultasSQL::clean_string($POST['prod-inversion']);
+    $inversion=consultasSQL::clean_string($_POST['prod-inversion']);
     $imgName=$_FILES['img']['name'];
     $imgType=$_FILES['img']['type'];
     $imgSize=$_FILES['img']['size'];
     $imgMaxSize=5120;
-    
+
     if($codeProd!="" && $nameProd!="" && $cateProd!="" && $priceProd!="" && $modelProd!="" && $marcaProd!="" && $stockProd!="" && $codePProd!=""){
         $verificar=  ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$codeProd."'");
         $verificaltotal = mysqli_num_rows($verificar);
         if($verificaltotal<=0){
             if($imgType=="image/jpeg" || $imgType=="image/png"){
                 if(($imgSize/1024)<=$imgMaxSize){
-                    chmod('../assets/img-products/', 777);
+                    chmod('../assets/img-products/', 0777);
                     switch ($imgType) {
                       case 'image/jpeg':
                         $imgEx=".jpg";
@@ -36,10 +36,9 @@
                       break;
                     }
                     $imgFinalName=$codeProd.$imgEx;
-                    $inversion = $inversion * $stockProd;
-                   
+                    $inversion = $inversion*$stockProd;
                     if(move_uploaded_file($_FILES['img']['tmp_name'],"../assets/img-products/".$imgFinalName)){
-                        if(consultasSQL::InsertSQL("producto", "CodigoProd, NombreProd, CodigoCat, Precio, Descuento, Modelo, Marca, Stock, NITProveedor, Imagen, Nombre, Estado,Inversion", "'$codeProd','$nameProd','$cateProd','$priceProd', '$descProd', '$modelProd','$marcaProd','$stockProd','$codePProd','$imgFinalName','$adminProd,'$estadoProd','$inversion'")){
+                        if(consultasSQL::InsertSQL("producto", "CodigoProd, NombreProd, CodigoCat, Precio, Descuento, Modelo, Marca, Stock, NITProveedor, Imagen, Nombre, Estado,Inversion", "'$codeProd','$nameProd','$cateProd','$priceProd', '$descProd', '$modelProd','$marcaProd','$stockProd','$codePProd','$imgFinalName','$adminProd', '$estadoProd','$inversion'")){
                             echo '<script>
                                 swal({
                                   title: "Producto registrado",
