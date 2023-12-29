@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 21-03-2018 a las 02:19:49
--- Versión del servidor: 10.1.24-MariaDB
--- Versión de PHP: 7.1.6
+-- Servidor: localhost
+-- Tiempo de generación: 29-12-2023 a las 06:00:09
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,7 +38,8 @@ CREATE TABLE `administrador` (
 --
 
 INSERT INTO `administrador` (`id`, `Nombre`, `Clave`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 'admin2', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -52,6 +52,14 @@ CREATE TABLE `categoria` (
   `Nombre` varchar(30) NOT NULL,
   `Descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`CodigoCat`, `Nombre`, `Descripcion`) VALUES
+('1', 'Aretes de oro', 'Aretes de Oro 24 k'),
+('100', 'Abarrotes', 'productos varios');
 
 -- --------------------------------------------------------
 
@@ -69,6 +77,15 @@ CREATE TABLE `cliente` (
   `Telefono` varchar(20) NOT NULL,
   `Email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`NIT`, `Nombre`, `NombreCompleto`, `Apellido`, `Clave`, `Direccion`, `Telefono`, `Email`) VALUES
+('100', 'luis', 'Jose', 'Pu', '81dc9bdb52d04dc20036dbd8313ed055', 'ciudad', '35', 'jsam@gamil.com'),
+('1212', 'jose', 'Jose', 'Pu', '81dc9bdb52d04dc20036dbd8313ed055', 'ciudad', '35', 'jsam@gamil.com'),
+('121222', '1234', 'Jose', 'Pu', 'c4ca4238a0b923820dcc509a6f75849b', 'ciudad', '35', 'jsam@gamil.com');
 
 -- --------------------------------------------------------
 
@@ -116,7 +133,8 @@ CREATE TABLE `producto` (
   `NITProveedor` varchar(30) NOT NULL,
   `Imagen` varchar(150) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
-  `Estado` varchar(15) NOT NULL
+  `Estado` varchar(15) NOT NULL,
+  `Inversion` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -132,6 +150,13 @@ CREATE TABLE `proveedor` (
   `Telefono` varchar(20) NOT NULL,
   `PaginaWeb` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`NITProveedor`, `NombreProveedor`, `Direccion`, `Telefono`, `PaginaWeb`) VALUES
+('150', 'Aretes chinos', 'ciudad de Guatemala', '50000000', 'http://AretesDeGuatemala.com');
 
 -- --------------------------------------------------------
 
@@ -216,22 +241,26 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `cuentabanco`
 --
 ALTER TABLE `cuentabanco`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
   MODIFY `NumPedido` int(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- Restricciones para tablas volcadas
 --
