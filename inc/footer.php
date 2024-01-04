@@ -24,17 +24,16 @@
             <div class="col-sm-4">
                 <h4 class="text-footer">Porque elegirnos</h4>
                 <p> 
-                    Lorem ipsum dolor sit amet,adipisicing elit.</br>
-                    Lorem ipsum dolor sit amet,adipisicing elit.</br>
-                    Lorem ipsum dolor sit amet,adipisicing elit.</br>
-                    Lorem ipsum dolor sit amet,adipisicing elit.</br>
+                    Tenemos los mejores accesorios para sentirte </br>
+                    bella, a los mejores precios y de la mejor calidad.</br>
+                    
                 </p>
             </div>
             <div class="col-sm-4">
                 <h4 class="text-footer" >Direccion</h4>
-                <p style="color: #FFF">El Salvador</p>
-                <p style="color: #FFF">adipisicing elit</p>
-                <p style="font-size:20px" aria-hidden="true">  000 – 000000 / 000 – 000000</p>
+                <p style="color: #FFF">Quetzaltenango</p>
+                <p style="color: #FFF">21 Av 6-79 zona 3</p>
+                <p style="font-size:20px" aria-hidden="true">  +502 – 48480146 / +502 – 000000</p>
                 <p class="fa fa-mobile" style="font-size:20px"  aria-hidden="true">  00000000 / 0000000</p> <a href="#" target="_blank" style="color: #5bc0de">envianos_un_mensaje</a></br>
                 E-mail: <a href="#" target="_blank" style="color: #5bc0de"> &nbsp; ejemplod@dominio.com</a>
             </div>

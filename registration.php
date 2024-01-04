@@ -12,7 +12,7 @@
               <h1>REGISTRO <small class="tittles-pages-logo">NICE ACCESORIOS</small></h1>
             </div>
             <p class="lead text-center">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident assumenda asperiores architecto nostrum blanditiis excepturi voluptatibus, velit ad enim. Aperiam voluptatum est, fugit quisquam libero distinctio nobis porro numquam minus.
+            
             </p>
             <div class="row">
                 <div class="col-sm-5 text-center">
@@ -32,7 +32,7 @@
                               </div>
                               <div class="col-xs-12">
                                 <div class="form-group label-floating">
-                                  <label class="control-label"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp; Ingrese su número de DNI</label>
+                                  <label class="control-label"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp; Ingrese su número de DPI</label>
                                   <input class="form-control" type="text" required name="clien-nit" pattern="[0-9]{1,15}" title="Ingrese su número de DNI. Solamente números" maxlength="15" >
                                 </div>
                               </div>
