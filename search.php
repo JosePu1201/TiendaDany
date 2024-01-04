@@ -65,7 +65,7 @@ include './library/consulSQL.php';
                              <div class="caption">
                                <h3><?php echo $prod['Marca']; ?></h3>
                                <p><?php echo $prod['NombreProd']; ?></p>
-                               <p>$<?php echo $prod['Precio']; ?></p>
+                               <p>Q<?php echo $prod['Precio']; ?></p>
                                <p class="text-center">
                                    <a href="infoProd.php?CodigoProd=<?php echo $prod['CodigoProd']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
                                </p>

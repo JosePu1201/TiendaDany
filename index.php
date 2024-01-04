@@ -84,7 +84,7 @@
                                             ?>
                                         </p>
                                     <?php else : ?>
-                                        <p>$<?php echo $fila['Precio']; ?></p>
+                                        <p>Q<?php echo $fila['Precio']; ?></p>
                                     <?php endif; ?>
                                     <p class="text-center">
                                         <a href="infoProd.php?CodigoProd=<?php echo $fila['CodigoProd']; ?>" class="btn btn-primary btn-sm btn-raised btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>

@@ -4,6 +4,7 @@ require './fpdf/fpdf.php';
 include '../library/configServer.php';
 include '../library/consulSQL.php';
 $id=$_GET['id'];
+echo($id);
 $sVenta=ejecutarSQL::consultar("SELECT * FROM venta WHERE NumPedido='$id'");
 if (!$sVenta) {
     die('Error en la consulta: ' . mysqli_error());
