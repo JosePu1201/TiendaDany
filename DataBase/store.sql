@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 29-12-2023 a las 06:00:09
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 07-01-2024 a las 05:58:36
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `administrador` (
   `id` int(7) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Clave` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `administrador`
@@ -51,7 +51,7 @@ CREATE TABLE `categoria` (
   `CodigoCat` varchar(30) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Descripcion` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `categoria`
@@ -76,7 +76,7 @@ CREATE TABLE `cliente` (
   `Direccion` varchar(200) NOT NULL,
   `Telefono` varchar(20) NOT NULL,
   `Email` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -84,6 +84,7 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`NIT`, `Nombre`, `NombreCompleto`, `Apellido`, `Clave`, `Direccion`, `Telefono`, `Email`) VALUES
 ('100', 'luis', 'Jose', 'Pu', '81dc9bdb52d04dc20036dbd8313ed055', 'ciudad', '35', 'jsam@gamil.com'),
+('1000', 'j', 'j', 'j', '363b122c528f54df4a0446b6bab05515', 'ciduad', '55', 'jsam@gmaiol.com'),
 ('1212', 'jose', 'Jose', 'Pu', '81dc9bdb52d04dc20036dbd8313ed055', 'ciudad', '35', 'jsam@gamil.com'),
 ('121222', '1234', 'Jose', 'Pu', 'c4ca4238a0b923820dcc509a6f75849b', 'ciudad', '35', 'jsam@gamil.com');
 
@@ -99,7 +100,14 @@ CREATE TABLE `cuentabanco` (
   `NombreBanco` varchar(100) NOT NULL,
   `NombreBeneficiario` varchar(100) NOT NULL,
   `TipoCuenta` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `cuentabanco`
+--
+
+INSERT INTO `cuentabanco` (`id`, `NumeroCuenta`, `NombreBanco`, `NombreBeneficiario`, `TipoCuenta`) VALUES
+(1, '1502', 'Banrural', 'Daniel Barrios', 'Ahorro');
 
 -- --------------------------------------------------------
 
@@ -112,7 +120,17 @@ CREATE TABLE `detalle` (
   `CodigoProd` varchar(30) NOT NULL,
   `CantidadProductos` int(20) NOT NULL,
   `PrecioProd` decimal(30,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `detalle`
+--
+
+INSERT INTO `detalle` (`NumPedido`, `CodigoProd`, `CantidadProductos`, `PrecioProd`) VALUES
+(6, '3', 1, 250.00),
+(7, '2', 100, 250.00),
+(9, '2', 150, 250.00),
+(10, '2', 100, 250.00);
 
 -- --------------------------------------------------------
 
@@ -134,8 +152,17 @@ CREATE TABLE `producto` (
   `Imagen` varchar(150) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Estado` varchar(15) NOT NULL,
-  `Inversion` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Inversion` double DEFAULT NULL,
+  `Ganancias` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id`, `CodigoProd`, `NombreProd`, `CodigoCat`, `Precio`, `Descuento`, `Modelo`, `Marca`, `Stock`, `NITProveedor`, `Imagen`, `Nombre`, `Estado`, `Inversion`, `Ganancias`) VALUES
+(2, '2', 'Arete Plata', '1', 250.00, 0, '1', 'china', 1133, '150', '2.png', 'admin', 'Activo', 225000, 62500),
+(3, '3', 'Arete banado', '1', 250.00, 0, '1', 'China', 1399, '150', '3.jpg', 'admin', 'Activo', 150000, 0);
 
 -- --------------------------------------------------------
 
@@ -149,7 +176,7 @@ CREATE TABLE `proveedor` (
   `Direccion` varchar(200) NOT NULL,
   `Telefono` varchar(20) NOT NULL,
   `PaginaWeb` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `proveedor`
@@ -170,10 +197,23 @@ CREATE TABLE `venta` (
   `NIT` varchar(30) NOT NULL,
   `TotalPagar` decimal(30,2) NOT NULL,
   `Estado` varchar(150) NOT NULL,
-  `NumeroDeposito` varchar(50) NOT NULL,
   `TipoEnvio` varchar(37) NOT NULL,
-  `Adjunto` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Telefono` int(11) NOT NULL,
+  `Direccion` varchar(200) NOT NULL,
+  `Referencia` varchar(400) NOT NULL,
+  `Nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`NumPedido`, `Fecha`, `NIT`, `TotalPagar`, `Estado`, `TipoEnvio`, `Telefono`, `Direccion`, `Referencia`, `Nombre`) VALUES
+(6, '07-01-2024', '1000', 250.00, 'Entregado', '', 35583130, 'Cantel Quetzalt', 'Electronica san', 'Jose'),
+(7, '07-01-2024', '1000', 25000.00, 'Pendiente', 'Envio Por Currier', 48480146, '4 ta avenida as', 'ciudad', 'Luis'),
+(8, '07-01-2024', '1000', 37500.00, 'Pendiente', '', 35583130, 'Cantel Quetzaltenango', 'Electronica san Jose', 'Jose'),
+(9, '07-01-2024', '1000', 37500.00, 'Pendiente', '', 35583130, 'Cantel Quetzaltenango', 'Electronica san Jose', 'Jose'),
+(10, '07-01-2024', '1000', 25000.00, 'Pendiente', 'Recoger Por Tienda', 35583130, 'Cantel Quetzalt', 'ciudad', 'Jose');
 
 --
 -- Índices para tablas volcadas
@@ -247,19 +287,19 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `cuentabanco`
 --
 ALTER TABLE `cuentabanco`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `NumPedido` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `NumPedido` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
