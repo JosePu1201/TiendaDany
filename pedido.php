@@ -9,7 +9,7 @@
     <section id="container-pedido">
         <div class="container">
             <div class="page-header">
-              <h1>PEDIDOS <small class="tittles-pages-logo">STORE</small></h1>
+              <h1>PEDIDOS <small class="tittles-pages-logo">NICE ACCESORIOS</small></h1>
             </div>
             <br><br><br>
             <div class="row">
@@ -25,9 +25,9 @@
                         <div class="row">
                           <div class="col-xs-10 col-xs-offset-1">
                             <p class="text-center lead">Selecciona un metodo de pago</p>
-                            <img class="img-responsive center-all-contens" src="assets/img/credit-card.png">
                             <p class="text-center">
-                              <button class="btn btn-lg btn-raised btn-success btn-block" data-toggle="modal" data-target="#PagoModalTran">Transaccion Bancaria</button>
+                              <button class="btn btn-lg btn-raised btn-success btn-block" data-toggle="modal" data-target="#PagoModalTran">Pago contra entrega</button>
+                              <button class="btn btn-lg btn-raised btn-success btn-block" data-toggle="modal" >Transaccion Bancaria</button>
                             </p>
                           </div>
                         </div>
@@ -73,7 +73,7 @@
                                     ?> 
                                         <tr>
                                             <td><?php echo $rw['Fecha']; ?></td>
-                                            <td>$<?php echo $rw['TotalPagar']; ?></td>
+                                            <td>Q<?php echo $rw['TotalPagar']; ?></td>
                                             <td>
                                             <?php
                                               switch ($rw['Estado']) {
@@ -116,7 +116,7 @@
         <form class="modal-content FormCatElec" action="process/confirmcompra.php" method="POST" role="form" data-form="save">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Pago por transaccion bancaria</h4>
+            <h4 class="modal-title" id="myModalLabel">Pago contra entrega</h4>
           </div>
           <div class="modal-body">
             <?php
@@ -124,17 +124,10 @@
               if(mysqli_num_rows($consult1)>=1){
                 $datBank=mysqli_fetch_array($consult1, MYSQLI_ASSOC);
             ?>
-            <p>Por favor haga el deposito en la siguiente cuenta de banco e ingrese el numero de deposito que se le proporciono.</p><br>
-            <p>
-              <strong>Nombre del banco:</strong> <?php echo $datBank['NombreBanco']; ?><br>
-              <strong>Numero de cuenta:</strong> <?php echo $datBank['NumeroCuenta']; ?><br>
-              <strong>Nombre del beneficiario:</strong> <?php echo $datBank['NombreBeneficiario']; ?><br>
-              <strong>Tipo de cuenta:</strong> <?php echo $datBank['TipoCuenta']; ?><br><br>
-            </p>
                 <?php if($_SESSION['UserType']=="Admin"): ?>
                 <div class="form-group">
-                    <label>Numero de deposito</label>
-                    <input class="form-control" type="text" name="NumDepo" placeholder="Numero de deposito" maxlength="50" required="">
+                    <label>Nombre</label>
+                    <input class="form-control" type="text" name="NomCliente" placeholder="Nombre del cliente" maxlength="50" required="">
                 </div>
                 <div class="form-group">
                   <span>Tipo De Envio</span>
@@ -145,26 +138,26 @@
                   </select>
                </div>
                 <div class="form-group">
-                    <label>DNI del cliente</label>
-                    <input class="form-control" type="text" name="Cedclien" placeholder="DNI del cliente" maxlength="15" required="">
+                    <label>NIT</label>
+                    <input class="form-control" type="text" name="NitCliente" placeholder="NIT del cliente" maxlength="15" required="">
                 </div>
                 <div class="form-group">
-                      <input type="file" name="comprobante">
-                      <div class="input-group">
-                        <input type="text" readonly="" class="form-control" placeholder="Seleccione la imagen del comprobante...">
-                          <span class="input-group-btn input-group-sm">
-                            <button type="button" class="btn btn-fab btn-fab-mini">
-                              <i class="fa fa-file-image-o" aria-hidden="true"></i>
-                            </button>
-                          </span>
-                      </div>
-                        <p class="help-block"><small>Tipos de archivos admitidos, imagenes .jpg y .png. Maximo 5 MB</small></p>
-                    </div>
+                    <label>Telefono</label>
+                    <input class="form-control" type="text" name="TelCliente" placeholder="Numero de telefono del cliente" maxlength="15" required="">
+                </div>
+                <div class="form-group">
+                    <label>Direccion</label>
+                    <input class="form-control" type="text" name="DirCliente" placeholder="Direccion del cliente" maxlength="150" required="">
+                </div>
+                <div class="form-group">
+                    <label>Referencia</label>
+                    <input class="form-control" type="text" name="RefDir" placeholder="Referencia de la direccion" maxlength="150" required="">
+                </div>
                 <?php else: ?>
-                    <div class="form-group">
-                        <label>Numero de deposito</label>
-                        <input class="form-control" type="text" name="NumDepo" placeholder="Numero de deposito" maxlength="50" required="">
-                    </div>
+                  <div class="form-group">
+                    <label>Nombre</label>
+                    <input class="form-control" type="text" name="NomCliente" placeholder="Ingresa tu nombre sin tildes" maxlength="100" required="">
+                  </div>
                     <div class="form-group">
                       <span>Tipo De Envio</span>
                       <select class="form-control" name="tipo-envio" data-toggle="tooltip" data-placement="top" title="Elige El Tipo De Envio">
@@ -173,19 +166,19 @@
                           <option value="Envio Por Currier">Envio Gratis</option> 
                       </select>
                    </div>
-                    <input type="hidden" name="Cedclien" value="<?php echo $_SESSION['UserNIT']; ?>">
-                    <div class="form-group">
-                      <input type="file" name="comprobante">
-                      <div class="input-group">
-                        <input type="text" readonly="" class="form-control" placeholder="Seleccione la imagen del comprobante...">
-                          <span class="input-group-btn input-group-sm">
-                            <button type="button" class="btn btn-fab btn-fab-mini">
-                              <i class="fa fa-file-image-o" aria-hidden="true"></i>
-                            </button>
-                          </span>
-                      </div>
-                        <p class="help-block"><small>Tipos de archivos admitidos, imagenes .jpg y .png. Maximo 5 MB</small></p>
-                    </div>
+                   <input type="hidden" name="NitCliente" value="<?php echo $_SESSION['UserNIT']; ?>">
+                <div class="form-group">
+                    <label>Telefono</label>
+                    <input class="form-control" type="text" name="TelCliente" placeholder="Tu numero de telefono" maxlength="15" required="">
+                </div>
+                <div class="form-group">
+                    <label>Direccion</label>
+                    <input class="form-control" type="text" name="DirCliente" placeholder="Tu direccion para entrega" maxlength="150" required="">
+                </div>
+                <div class="form-group">
+                    <label>Referencia</label>
+                    <input class="form-control" type="text" name="RefDir" placeholder="Referencia de la direccion" maxlength="150" required="">
+                </div>
                 <?php 
                 endif;
               }else{

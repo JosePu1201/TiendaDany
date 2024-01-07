@@ -33,6 +33,8 @@
                                 <th class="text-center">Stock</th>
                                 <th class="text-center">Proveedor</th>
                                 <th class="text-center">Estado</th>
+                                <th class="text-center">Total de inversion</th>
+                                <th class="text-center">Total de Ganancias</th>
                                 <th class="text-center">Imagen</th>
                                 <th class="text-center">Actualizar</th>
                                 <th class="text-center">Eliminar</th>
@@ -84,6 +86,13 @@
             <td class="text-center">
                 <?php echo $prod['Estado']; ?>
             </td>
+            <td class="text-center">
+                <?php echo "Q" . $prod['Inversion']; ?>
+            </td>
+            <td class="text-center">
+                <?php echo "Q" . $prod['Ganancias']; ?>
+            </td>
+
             <td class="text-center">
             <img src="./assets/img-products/<?php echo $prod['Imagen']; ?>" alt="<?php echo $prod['NombreProd']; ?>" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
             </td>
