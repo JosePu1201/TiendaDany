@@ -17,6 +17,9 @@
                                 <th class="text-center">Cliente</th>
                                 <th class="text-center">Total</th>
                                 <th class="text-center">Estado</th>
+                                <th class="text-center">Telefono</th>
+                                <th class="text-center">Direccion</th>
+                                <th class="text-center">Referencia</th>
                                 <th class="text-center">Envío</th>
                                 <th class="text-center">Opciones</th>
                                 <th class="text-center">Eliminar</th>
@@ -49,11 +52,14 @@
                                 <?php 
                                     $conUs= ejecutarSQL::consultar("SELECT Nombre FROM cliente WHERE NIT='".$order['NIT']."'");
                                     $UsP=mysqli_fetch_array($conUs, MYSQLI_ASSOC);
-                                    echo $UsP['Nombre'];
+                                    echo $order['Nombre'];
                                 ?>
                             </td>
                             <td class="text-center"><?php echo $order['TotalPagar']; ?></td>
                             <td class="text-center"><?php echo $order['Estado']; ?></td>
+                            <td class="text-center"><?php echo $order['Telefono']; ?></td>
+                            <td class="text-center"><?php echo $order['Direccion']; ?></td>
+                            <td class="text-center"><?php echo $order['Referencia']; ?></td>
                             <td class="text-center"><?php echo $order['TipoEnvio']; ?></td>
                             <td class="text-center">
                                 <a href="#!" class="btn btn-raised btn-xs btn-success btn-block btn-up-order" data-code="<?php echo $order['NumPedido']; ?>">Actualizar</a>

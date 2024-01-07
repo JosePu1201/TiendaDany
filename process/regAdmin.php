@@ -13,7 +13,7 @@ if($passAdmin1!=$passAdmin2){
 }
 
 $passAdminFinal=md5($passAdmin1);
-
+echo '<script>swal("Las contraseñas que acaba de ingresar no coinciden $passAdminFinal ");</script>';
 $verificar=ejecutarSQL::consultar("SELECT * FROM administrador WHERE Nombre='".$nameAdmin."'");
 if(mysqli_num_rows($verificar)<=0){
     if(consultasSQL::InsertSQL("administrador", "Nombre, Clave", "'$nameAdmin','$passAdminFinal'")){
